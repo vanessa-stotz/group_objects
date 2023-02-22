@@ -25,7 +25,6 @@ def get_index(list):
 
 class group_controllers(QtWidgets.QDialog):
         
-    #Konstruktor
     def __init__(self,parent=mayaWindow()):
             
         # Definiert Standardwerte jeder benötigten 
@@ -47,10 +46,10 @@ class group_controllers(QtWidgets.QDialog):
         self.resize(400, 250)
         self.layout()
     
-    # Diese Funktion definiert den Aufbau der Bedienfläche.
+
     def layout(self):
 
-        # Teilt die Bedienfläche in zwei Hauptgruppen ein.
+
         self.groups_group = QtWidgets.QGroupBox("Groups")
         self.edit_group = QtWidgets.QGroupBox()
 
@@ -61,7 +60,7 @@ class group_controllers(QtWidgets.QDialog):
         self.groups_group.setLayout(self.groups_layout)
 
         
-        #self.edit_layout = QtWidgets.QVBoxLayout()
+ 
         self.edit_layout = QtWidgets.QVBoxLayout()
 
         self.select_group_layout = QtWidgets.QHBoxLayout()
@@ -71,7 +70,6 @@ class group_controllers(QtWidgets.QDialog):
         self.text_layout = QtWidgets.QHBoxLayout()
         self.add_groups_label = QtWidgets.QLabel("Name of added group")
         self.add_groups_text = QtWidgets.QLineEdit(self)
-        #self.add_groups_text.setText()
         self.text_layout.addWidget(self.add_groups_text)
         
         self.add_delete_group_layout = QtWidgets.QHBoxLayout()
@@ -92,17 +90,12 @@ class group_controllers(QtWidgets.QDialog):
         self.edit_layout.addLayout(self.add_remove_element_layout)
         self.edit_group.setLayout(self.edit_layout)
 
-        # Verbindet die beiden Hauptgruppen mit dem Hauptlayout und
-        # setzt dieses.
         main_layout = QtWidgets.QVBoxLayout()
         main_layout.setContentsMargins(6, 6, 6, 6)
         main_layout.addWidget(self.groups_group)
         main_layout.addWidget(self.edit_group)
         self.setLayout(main_layout)
 		
-        # Fügt Aktionen zu den Buttons und dem Zahlenregler hinzu.
-        # Diese werden ausgeführt, sobald der Button betätigt
-        # oder der Wert des Zahlenreglers verändert wird.
         self.selection_button.clicked.connect(self.select_group)
         self.add_group_button.clicked.connect(self.add_selection_to_list)
         self.delete_group_button.clicked.connect(self.delete_selected_group)
@@ -125,7 +118,6 @@ class group_controllers(QtWidgets.QDialog):
 
     def delete_selected_group(self):
 
-        #selection = get_selection(self.groups_list, self.list_of_elements)
         index = get_index(self.groups_list)
 
         self.list_of_elements.pop(index)
@@ -151,13 +143,7 @@ class group_controllers(QtWidgets.QDialog):
         self.list_of_elements[index]= temp_selection
         pm.select(clear = True)
     
-
-
-
-
-    
-
-# Dies sorgt für die Ausführung des Tools.                                 
+                               
 if __name__=="__main__":
     myWin = group_controllers()
     myWin.show()
