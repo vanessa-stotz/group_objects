@@ -29,7 +29,7 @@ class group_controllers(QtWidgets.QDialog):
             
         # Definiert Standardwerte jeder benötigten 
         # Variablen in der Klasse.
-        self.winName = "Group Controllers"
+        self.winName = "Group Objects"
         self.geo_name = ""
         self.selection = 0
         self.every_other_variable = 0
